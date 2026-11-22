@@ -28,12 +28,17 @@ class InstallCommand extends Command
             $this->call('migrate');
         }
 
+        if (is_dir(base_path('.git')) && $this->confirm('Would you like to install the Git pre-commit hook to audit changes before each commit?', false)) {
+            $this->call('codepulse:hook', ['--install' => true]);
+        }
+
         $this->checkEnvironmentKey();
 
         $this->newLine();
         $this->components->info('CodePulse AI successfully installed!');
         $this->line('  <fg=gray>Dashboard:</> <fg=cyan>' . url(config('codepulse.path', 'codepulse')) . '</>');
         $this->line('  <fg=gray>CLI Check:</> <fg=yellow>php artisan codepulse:check --staged</>');
+        $this->line('  <fg=gray>Git Hook:</>  <fg=yellow>php artisan codepulse:hook --install</>');
         $this->newLine();
 
         return self::SUCCESS;

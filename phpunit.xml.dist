@@ -20,6 +20,7 @@
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:6Cu/ozUs8DpKDdoercUcCDZLkKgAyA4VbUghF/U5o5w="/>
         <env name="DB_CONNECTION" value="sqlite"/>
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="CODEPULSE_GEMINI_KEY" value="AQ.TestKey12345"/>

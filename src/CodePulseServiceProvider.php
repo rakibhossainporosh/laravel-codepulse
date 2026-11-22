@@ -3,6 +3,7 @@
 namespace CodePulse;
 
 use CodePulse\Commands\CheckCommand;
+use CodePulse\Commands\HookCommand;
 use CodePulse\Commands\InstallCommand;
 use CodePulse\Services\GeminiClient;
 use CodePulse\Services\KeyVaultService;
@@ -47,6 +48,7 @@ class CodePulseServiceProvider extends ServiceProvider
             $this->commands([
                 InstallCommand::class,
                 CheckCommand::class,
+                HookCommand::class,
             ]);
         }
     }
