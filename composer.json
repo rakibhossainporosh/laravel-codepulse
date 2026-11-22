@@ -1,5 +1,5 @@
 {
-    "name": "codepulse/laravel-codepulse",
+    "name": "rakibhossainporosh/laravel-codepulse",
     "description": "AI-Powered Code & Security Review Engine for Laravel using Google Gemini BYOK",
     "keywords": [
         "laravel",
@@ -11,21 +11,17 @@
         "static-analysis",
         "developer-tools"
     ],
-    "homepage": "https://github.com/codepulse/laravel-codepulse",
+    "homepage": "https://github.com/rakibhossainporosh/laravel-codepulse",
     "license": "MIT",
     "authors": [
         {
-            "name": "CodePulse",
+            "name": "Rakib Hossain Porosh",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.2|^8.3|^8.4",
-        "illuminate/support": "^11.0|^12.0|^13.0",
-        "illuminate/console": "^11.0|^12.0|^13.0",
-        "illuminate/http": "^11.0|^12.0|^13.0",
-        "illuminate/queue": "^11.0|^12.0|^13.0",
-        "illuminate/database": "^11.0|^12.0|^13.0"
+        "illuminate/support": "^11.0|^12.0|^13.0"
     },
     "require-dev": {
         "orchestra/testbench": "^9.0|^10.0",
