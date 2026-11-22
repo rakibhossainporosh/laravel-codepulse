@@ -1,0 +1,60 @@
+{
+    "name": "codepulse/laravel-codepulse",
+    "description": "AI-Powered Code & Security Review Engine for Laravel using Google Gemini BYOK",
+    "keywords": [
+        "laravel",
+        "codepulse",
+        "code-review",
+        "ai",
+        "gemini",
+        "security-audit",
+        "static-analysis",
+        "developer-tools"
+    ],
+    "homepage": "https://github.com/codepulse/laravel-codepulse",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CodePulse",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2|^8.3|^8.4",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/console": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/queue": "^11.0|^12.0|^13.0",
+        "illuminate/database": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "phpunit/phpunit": "^10.5|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodePulse\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodePulse\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CodePulse\\CodePulseServiceProvider"
+            ],
+            "aliases": {
+                "CodePulse": "CodePulse\\Facades\\CodePulse"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {}
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

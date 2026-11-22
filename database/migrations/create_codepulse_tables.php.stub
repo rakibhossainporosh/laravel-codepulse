@@ -1,0 +1,63 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Get the migration connection name.
+     */
+    public function getConnection(): ?string
+    {
+        return config('codepulse.database_connection');
+    }
+
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('codepulse_reviews', function (Blueprint $table) {
+            $table->id();
+            $table->string('file_path')->nullable()->index();
+            $table->string('language', 50)->default('PHP');
+            $table->longText('source_code');
+            $table->string('status', 20)->default('pending')->index();
+            $table->unsignedTinyInteger('overall_score')->nullable();
+            $table->unsignedTinyInteger('security_score')->nullable();
+            $table->unsignedTinyInteger('performance_score')->nullable();
+            $table->unsignedTinyInteger('maintainability_score')->nullable();
+            $table->unsignedInteger('tokens_used')->default(0);
+            $table->string('model_used', 60)->nullable();
+            $table->json('focus_areas')->nullable();
+            $table->text('error_message')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('codepulse_findings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('review_id')
+                ->constrained('codepulse_reviews')
+                ->cascadeOnDelete();
+            $table->string('category', 50)->index();
+            $table->string('severity', 20)->index();
+            $table->string('title', 255);
+            $table->text('description')->nullable();
+            $table->unsignedInteger('line_start')->nullable();
+            $table->unsignedInteger('line_end')->nullable();
+            $table->text('suggested_fix')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('codepulse_findings');
+        Schema::dropIfExists('codepulse_reviews');
+    }
+};
